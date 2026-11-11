@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10110f">
+<title>القيصر | للمكملات الرياضية</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Montserrat:wght@600;700;800;900&display=swap');
+:root{--bg:#10110f;--panel:#191b17;--panel2:#20221d;--line:#303329;--gold:#fdda05;--white:#f5f5ef;--muted:#999b8d;--soft:#d5d6ca;--radius:17px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font-family:'Cairo',sans-serif;line-height:1.7}button,input{font:inherit}button{cursor:pointer}.container{width:min(1160px,92%);margin:auto}
+header{height:86px;border-bottom:1px solid #24251f;position:sticky;top:0;background:rgba(16,17,15,.92);backdrop-filter:blur(14px);z-index:20}
+.nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:25px}.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--white)}
+.brand-mark {width: 45px;height: 45px;border: 1px solid #55532b;border-radius: 11px;display: flex;align-items: center;justify-content: center;overflow: hidden;background: #10110f;}
+.brand-mark img {width: 100%;height: 100%;object-fit: cover;}
+.brand-name{font-weight:900;font-size:22px;line-height:1.15}.brand small{display:block;color:var(--muted);font-size:10px;font-weight:500}
+.links{display:flex;gap:34px}.links a{color:#b8b9ae;text-decoration:none;font-size:13px;transition:.2s}.links a:hover,.links a.active{color:var(--gold)}
+.nav-search{border:1px solid var(--line);background:transparent;color:var(--white);padding:9px 14px;border-radius:9px;font-size:12px;cursor:pointer}
+
+.hero{padding:48px 0 54px;display:grid;grid-template-columns:1.05fr .95fr;gap:65px;align-items:center;min-height:390px}
+.hero-art{height:440;border-radius:8px;position:relative;overflow:hidden;background:#10110f;border:1px solid #303226;display:flex;align-items:center;justify-content:center}
+.hero-art img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-copy{text-align:right}.eyebrow{font-size:12px;color:var(--gold);font-weight:700;letter-spacing:.3px}
+.hero h1{font-size:clamp(34px,4.5vw,57px);line-height:1.35;margin:14px 0;font-weight:900}.hero h1 span{color:var(--gold)}
+.hero p{color:var(--muted);max-width:470px;font-size:14px;margin:0 0 24px}
+.primary{background:var(--gold);border:0;color:#17180e;padding:12px 23px;border-radius:8px;font-weight:900;transition:.2s}
+.primary:hover{transform:translateY(-2px);filter:brightness(1.06)}.hero-note{display:block;color:#77796c;font-size:11px;margin-top:15px}
+
+.ticker{background:#fdda05;color:#17180e;padding:13px 0;overflow:hidden;white-space:nowrap}
+.ticker-inner{display:flex;width:max-content;animation:tickerMove 22s linear infinite}
+.ticker-inner:hover{animation-play-state:paused}
+.ticker-group{display:flex;align-items:center;gap:55px;padding-left:55px;flex-shrink:0}
+.ticker .english{font:900 17px Montserrat,sans-serif;direction:ltr}
+@keyframes tickerMove {from{transform:translateX(0)}to{transform:translateX(50%)}}
+
+.catalog{padding:65px 0 50px}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:24px}
+.section-head h2{font-size:27px;margin:4px 0;font-weight:900}.section-head p{margin:0;color:var(--muted);font-size:13px}.count{font-size:12px;color:var(--muted)}
+
+.search-row{display:flex;gap:12px;margin-bottom:16px}
+.searchbox{flex:1;position:relative}
+.searchbox input{width:100%;height:48px;border:1px solid var(--line);border-radius:9px;background:var(--panel);color:var(--white);padding:0 44px 0 15px;outline:none}
+.searchbox input:focus{border-color:var(--gold)}
+.searchbox:before{content:"⌕";position:absolute;right:16px;top:10px;font-size:22px;color:var(--gold)}
+
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:23px}
+.filter{background:var(--panel);border:1px solid var(--line);color:#b8baae;border-radius:8px;padding:8px 15px;font-size:12px;transition:.2s}
+.filter:hover{border-color:#77733a;color:var(--white)}
+.filter.active{background:var(--gold);color:#17180e;border-color:var(--gold);font-weight:900}
+
+/* شبكة المنتجات لمنع التداخل تماماً */
+.grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));gap:20px;align-items:stretch;}
+.product-card{background:var(--panel);border:1px solid #2d3027;border-radius:12px;overflow:hidden;transition:.25s;display:flex;flex-direction:column;height:100%}
+.product-card:hover{transform:translateY(-5px);border-color:#716b2c;box-shadow:0 14px 28px #0004}
+
+.product-visual{height:210px;background:#f5f5ee;display:grid;place-items:center;position:relative;overflow:hidden;padding:12px}
+.product-visual img{width:100%;height:100%;object-fit:contain;object-position:center;display:block}
+.category-tag{position:absolute;top:12px;right:12px;background:#17180e;color:var(--gold);padding:3px 9px;border-radius:4px;font-size:10px;z-index:2;font-weight:700}
+
+.card-body{padding:15px;display:flex;flex-direction:column;flex:1}
+.latin{font:700 9px Montserrat,sans-serif;color:#9a9e85;letter-spacing:1.2px;direction:ltr;text-align:right}
+.card-body h3{font-size:16px;margin:5px 0 4px;font-weight:800;color:var(--white)}
+.card-body p{font-size:12px;color:var(--muted);margin:0 0 15px;flex:1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #303329;margin-top:auto;padding-top:10px}
+.details{background:none;border:0;color:var(--gold);font-weight:800;font-size:12px;cursor:pointer}
+.arrow{color:var(--gold);font-size:17px}
+
+.empty{grid-column:1/-1;text-align:center;padding:45px;color:var(--muted);border:1px dashed var(--line);border-radius:12px}
+
+.about{padding:25px 0 55px}
+.about-card{border:1px solid #34372b;background:linear-gradient(120deg,#1c1f17,#171914);border-radius:13px;padding:32px 38px;display:grid;grid-template-columns:1fr 1.3fr;gap:40px;align-items:center}
+.about-logo{display:flex;gap:20px;align-items:center}
+.brand-mark-down{width:75px;height:75px;border:1px solid #55532b;border-radius:14px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#10110f}
+.brand-mark-down img{width:100%;height:100%;object-fit:cover}
+.about h2{font-size:25px;line-height:1.5;margin:6px 0}.about h2 span{color:var(--gold)}
+.about p{color:var(--muted);font-size:12px;margin:0}
+.about-points{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;color:#c5c7b5;font-size:11px}
+
+footer{border-top:1px solid #282a23;padding:23px 0;color:#858879;font-size:11px}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px}
+.footer-inner b{color:var(--white);font-size:17px}
+
+/* النافذة المنخفضة (Modal) */
+.modal{position:fixed;inset:0;background:#000b;z-index:50;display:none;align-items:center;justify-content:center;padding:20px}
+.modal.open{display:flex}
+.modal-box{width:min(850px,100%);max-height:90vh;overflow:auto;background:#171914;border:1px solid #454733;border-radius:16px;position:relative;display:grid;grid-template-columns:1fr 1fr;direction:rtl}
+.modal-close{position:absolute;top:13px;left:13px;z-index:2;border:1px solid #484a3b;background:#20221c;color:#fff;width:35px;height:35px;border-radius:50%;font-size:20px;cursor:pointer}
+.modal-gallery{padding:22px;background:#20221c;display:flex;flex-direction:column;gap:12px}
+.main-photo{height:280px;border-radius:10px;background:#f5f5ee;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.main-photo img{width:100%;height:100%;object-fit:contain}
+.thumbs{display:flex;gap:9px}
+.thumb{height:65px;flex:1;border:1px solid #45483b;border-radius:7px;background:#f5f5ee;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:contain}
+.modal-info{padding:42px 30px 30px}
+.modal-info h2{font-size:27px;margin:8px 0;color:var(--white)}
+.modal-info p{font-size:13px;color:#b1b3a7}
+.modal-info h4{color:var(--gold);margin:20px 0 5px}
+.specs{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
+.spec{border:1px solid #3a3d30;padding:6px 11px;border-radius:7px;color:#d3d5c7;font-size:11px}
+.modal-actions{display:flex;gap:10px;margin-top:25px}
+.secondary{background:transparent;border:1px solid #55583c;color:var(--gold);padding:10px 16px;border-radius:8px;font-weight:700;cursor:pointer}
+
+@media(max-width:900px){.hero{gap:30px}.links{gap:16px}}
+@media(max-width:650px){header{height:auto}.nav{padding:12px 0;flex-wrap:wrap}.links{order:3;width:100%;justify-content:center;padding:5px 0}.nav-search{margin-right:auto}.hero{grid-template-columns:1fr;padding:30px 0 38px;gap:28px}.hero h1{font-size:39px}.ticker-inner{justify-content:center;flex-wrap:wrap}.section-head{align-items:start;flex-direction:column}.about-card{grid-template-columns:1fr;padding:25px}.modal-box{grid-template-columns:1fr}.footer-inner{flex-direction:column;text-align:center}}
+/* إطار الصورة */
+.product-visual {
+    height: 210px;
+    background: #f5f5ee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 0; /* إلغاء المباعدة الداخلية لمنع الفراغات */
+}
+
+/* صورة المنتج */
+.product-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* تغطية الإطار بالكامل وإلغاء أي فراغ جانبي أو علوي */
+    object-position: center;
+    display: block;
+}
+/* إخفاء الصور المصغرة بالأسفل نهائياً */
+.thumbs {
+    display: none !important;
+}
+
+/* جعل إطار الصورة الرئيسية يتوافق تماماً مع حجم الصورة بدون فراغات */
+.main-photo {
+    height: auto !important;
+    min-height: 320px;
+    background: transparent !important; /* إزالة الخلفية الفارغة */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 10px;
+}
+/* إطار الصورة الرئيسية في النافذة المنبثقة */
+/* إطار الصورة الرئيسية في النافذة المنبثقة */
+.main-photo {
+    width: 100%;
+    min-height: 300px;
+    max-height: 450px;
+    background: #10110f; /* لون خلفية داكن يندمج بسلاسة مع التصميم */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* ضبط الصورة لتظهر كاملة وبأبعادها المتناسقة بدون أي قص */
+.main-photo img {
+    max-width: 100%;
+    max-height: 420px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    margin: auto;
+}
+
+
+
+/* إطار الصورة في بطاقات المنتجات الرئيسية */
+.product-visual {
+    width: 100%;
+    height: 220px;
+    background: #10110f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    padding: 10px;
+}
+
+/* إظهار صورة المنتج كاملة داخل البطاقة */
+.product-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* منع اقتطاع أي جزء من المنتج */
+    object-position: center;
+    display: block;
+}
+/* ضبط الصورة الرئيسية لتملأ الإطار بانسجام */
+/* إطار الصورة الرئيسية في النافذة المنبثقة */
+.main-photo {
+    width: 100%;
+    height: 350px; /* تثبيت ارتفاع مناسب للإطار */
+    background: #10110f; /* لون خلفية متناسق يملأ أي فراغ متبقي بطريقة أنيقة */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* جعل الصورة تظهر كامداً بدون قطع أو اقتطاع */
+.main-photo img {
+    width: 200%;
+    height: 100%;
+    object-fit: contain; /* تضمن ظهور الصورة كاملة بداخل الإطار بلا نقصان */
+    object-position: center;
+    display: block;
+}
+
+/* إطار الصورة في بطاقات المنتجات الرئيسية */
+.product-visual {
+    width: 100%;
+    height: 220px;
+    background: #10110f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    padding: 10px;
+}
+
+/* إظهار صورة المنتج كاملة داخل البطاقة */
+.product-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* منع اقتطاع أي جزء من المنتج */
+    object-position: center;
+    display: block;
+}
+
+/* تعديل عرض قسم المعرض في النافذة ليصبح مرتباً */
+.modal-gallery {
+    padding: 22px;
+    background: #20221c;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* توسيط الصورة عمودياً بعد إخفاء الصور الصغرى */
+}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="container nav">
+  <a class="brand" href="#home">
+    <span class="brand-mark"><img src="Logo.jpg" alt="Logo"></span>
+    <span class="brand-name">القيصر.<small>للمكملات الرياضية</small></span>
+  </a>
+  <nav class="links">
+    <a class="active" href="#home">الرئيسية</a>
+    <a href="#products">المنتجات</a>
+    <a href="#about">عن القيصر</a>
+  </nav>
+  <button class="nav-search" onclick="document.getElementById('search').focus()">⌕ ابحث عن منتج</button>
+ </div>
+</header>
+
+<main>
+<section class="container hero" id="home">
+    <div class="hero-art"><img src="Main Pic.jpg" alt="القيصر للمكملات الرياضية"></div>
+    <div class="hero-copy">
+        <span class="eyebrow">طموحك أقوى، وخطوتك القادمة تبدأ هنا</span>
+        <h1>قوتك تبدأ<br>باختيار <span>القيصر.</span></h1>
+        <p>كل تمرين خطوة نحو نسخة أقوى منك. اكتشف عالم المكملات الرياضية، وتعرّف على ما يناسب أهدافك.</p>
+        <button class="primary" onclick="document.getElementById('products').scrollIntoView()">اكتشف المنتجات ↙</button>
+        <span class="hero-note">— شغف بالرياضة، اهتمام بكل تفصيلة</span>
+    </div>
+</section>
+
+<div class="ticker">
+    <div class="container ticker-inner">
+        <div class="ticker-group"><span class="english">FUEL YOUR AMBITION.</span><span>◎ اقترب من هدفك</span><span>♨ ارفع مستوى أدائك</span><span>♧ ابنِ قوتك</span></div>
+        <div class="ticker-group"><span class="english">FUEL YOUR AMBITION.</span><span>◎ اقترب من هدفك</span><span>♨ ارفع مستوى أدائك</span><span>♧ ابنِ قوتك</span></div>
+    </div>
+</div>
+
+<section class="container catalog" id="products">
+ <div class="section-head">
+    <div>
+        <span class="eyebrow">وقود تمرينك</span>
+        <h2>اختيارك، على قدّ <span style="color:var(--gold)">طموحك.</span></h2>
+        <p>تصفّح المكملات وتعرّف على كل منتج قبل أن تختار.</p>
+    </div>
+    <span class="count" id="count">0 منتج</span>
+ </div>
+
+ <div class="search-row">
+    <div class="searchbox">
+        <input id="search" type="search" placeholder="ابحث عن اسم المنتج أو نوع المكمل..." autocomplete="off">
+    </div>
+ </div>
+
+ <div class="filters" id="filters"></div>
+
+ <!-- شبكة المنتجات المنظمة -->
+ <div class="grid" id="productGrid"></div>
+</section>
+
+<section class="container about" id="about">
+ <div class="about-card">
+    <div class="about-logo">
+        <div class="brand-mark-down"><img src="Logo.jpg" alt="شعار القيصر"></div>
+        <div><span class="eyebrow">عن القيصر</span><h2>طموح رياضي،<br><span>وهوية تليق بالأبطال.</span></h2></div>
+    </div>
+    <div>
+        <p>القيصر للمكملات الرياضية: مساحة لعشّاق التدريب للتعرّف على خيارات المكملات وفهم دورها ضمن رحلة رياضية متوازنة. هدفنا أن نقرّبك من اختيار واعٍ وخطوة أقوى.</p>
+        <div class="about-points"><span>✦ اختيار واعٍ</span><span>✦ خطوة أقوى</span><span>✦ شغف لا يتوقف</span></div>
+    </div>
+ </div>
+</section>
+</main>
+
+<footer>
+    <div class="container footer-inner">
+        <b>963939101029+</b>
+        <span>© 2026 القيصر للمكملات الرياضية — جميع الحقوق محفوظة</span>
+        <a href="#home" style="color:var(--gold);text-decoration:none">العودة للأعلى ↑</a>
+    </div>
+</footer>
+
+<div class="modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+ <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()" aria-label="إغلاق">×</button>
+    <div class="modal-gallery">
+        <div class="main-photo" id="mainPhoto"></div>
+        <div class="thumbs">
+            <div class="thumb" id="thumb1"></div>
+            <div class="thumb" id="thumb2"></div>
+            <div class="thumb" id="thumb3"></div>
+        </div>
+    </div>
+    <div class="modal-info">
+        <span class="eyebrow" id="modalCategory"></span>
+        <h2 id="modalTitle"></h2>
+        <div class="latin" id="modalLatin"></div>
+        <p id="modalDesc"></p>
+        <h4>الفوائد والاستخدام</h4>
+        <p id="modalBenefits"></p>
+        <div class="specs" id="modalSpecs"></div>
+        <div class="modal-actions">
+            <button class="primary" onclick="contactUs()">استفسر عن المنتج</button>
+            <button class="secondary" onclick="closeModal()">متابعة التصفح</button>
+        </div>
+    </div>
+ </div>
+</div>
+
+<script>
+// قائمة الفئات المتاحة
+const categories = ['الكل', 'مسحوق بروتين', 'مسحوق الضخامة', 'حارق الدهون', 'الفيتامين', 'احماض امينية', 'كرياتين', 'محفز طاقة', 'اكسسوار'];
+
+// ==========================================
+// 📦 قاعدة بيانات المنتجات (يمكنك إضافة أو تعديل أي منتج هنا بكل سهولة)
+// ==========================================
+const products = [
+  //مسحوق ضخامة  
+
+{
+        //mass gainer
+        id: 1,
+        cat: 'مسحوق الضخامة',
+        name: 'ماس غاينر  ',
+        latin: 'Mass Gainer  ',
+        desc: '   مكمل غذائي لزيادة الوزن والكتلة العضلية من شركة West Nutrition',
+        benefits: 'يساعد في زيادة السعرات الحرارية - دعم بناء العضلات - تسريع الاستشفاء العضلي بعد التمرين ',
+        specs: ['1500 غرام حجم العبوة  ', '15 ظرف ', 'نكهة الكوكيز'], 
+        image: ' images/1.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+    {
+        //mass core
+        id: 2,
+        cat: 'مسحوق الضخامة',
+        name: 'ماس كور  ',
+        latin: 'Mass Core  ',
+        desc: '   مكمل غذائي لزيادة الوزن والكتلة العضلية من شركة FA Engineered Nutrition ',
+        benefits: 'يساعد في زيادة السعرات الحرارية - دعم بناء العضلات - تسريع الاستشفاء العضلي بعد التمرين ',
+        specs: ['7 كيلو حجم العبوة  ', '  سعرة حرارية أكثر من 800 ', '70 حصة'],
+        image: ' images/2.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+    {
+        //mass core
+        id: 3,
+        cat: 'مسحوق الضخامة',
+        name: 'ماس كور  ',
+        latin: 'Mass Core  ',
+        desc: '   مكمل غذائي لزيادة الوزن والكتلة العضلية من شركة FA Engineered Nutrition ',
+        benefits: 'يساعد في زيادة السعرات الحرارية - دعم بناء العضلات - تسريع الاستشفاء العضلي بعد التمرين ',
+        specs: ['7 كيلو حجم العبوة  ', ' سعرات حرارية عالية  ', '70 حصة'],
+        image: ' images/3.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+    {
+        //mass Gainer bad ass
+        id: 4,
+        cat: 'مسحوق الضخامة',
+        name: 'ماس غاينر  ',
+        latin: 'Mass Gainer   ',
+        desc: '   مكمل غذائي لزيادة الوزن والكتلة العضلية من شركة Bad Ass   ',
+        benefits: 'يساهم في زيادة القوة والطاقة وتقليل الإجهاد - تدعم الاستشفاء العضلي وتمنع الهدم-    يساعد في بناء وإصلاح الأنسجة العضلية ',
+        specs: ['7 كيلو حجم العبو ة  ', '70 حصة'],
+        image: ' images/4.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+    {
+        //mass max 3xl
+        id: 5,
+        cat: 'مسحوق الضخامة',
+        name: 'ماس ماكس 3اكس ال  ',
+        latin: 'Max Mass 3XL   ',
+        desc: '   مكمل غذائي لزيادة الوزن والكتلة العضلية من شركة Olimp Sport Nutrition    ',
+        benefits: ' مزيج بروتين ثلاثي مصل اللبن - مزيج طاقة ممتد وكربوهيدرات - معزز بالكرياتين والتورين ',
+        specs: ['6 كيلو حجم العبو ة  ', '60 حصة'],
+        image: ' images/5.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+    {
+        //Mass High Calorie Mass Gainer
+        id: 6,
+        cat: 'مسحوق الضخامة',
+        name: ' ماس هاي كالوري  ',
+        latin: 'Mass High Calorie Mass Gainer   ',
+        desc: '   مكمل غذائي لزيادة الوزن والكتلة العضلية من شركة Core Champs      ',
+        benefits: 'يحتوي على مزيج من بروتين مصل اللبن وكربوهيدرات سريعة الهضم لتغذية العضلات ومد الجسم بالطاقة اللازمة ',
+        specs: ['2.72 كيلو حجم العبو ة  ','نكهة الشوكولا', '20 حصة'],
+        image: ' images/6.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+     {
+        //Naplam Mass
+        id: 7,
+        cat: 'مسحوق الضخامة',
+        name: '   نابلام ماس  ',
+        latin: 'Naplam Mass  ',
+        desc: '   مكمل غذائي لزيادة الوزن والكتلة العضلية من شركة FA Nutrition       ',
+        benefits: 'دعم بناء العضلات وتجديد الأنسجة - مضاد قوي لهدم الخلايا ويحمي الكتلة العضلية - زيادة القوة وضخ الماء والمغذيات داخل العضلات',
+        specs: ['7 كيلو حجم العبو ة  ', '58 حصة'],
+        image: ' images/7.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+    {
+        //Rule 1 Mass Gainer
+        id: 8,
+        cat: 'مسحوق الضخامة',
+        name: ' رول 1 ماس غاينر ',
+        latin: 'Rule 1 Mass Gainer ',
+        desc: '   مكمل غذائي لزيادة الوزن والكتلة العضلية من شركة Rule One Proteins       ',
+        benefits: 'سعرات حرارية عالية - دعم الاستشفاء العضلي - تغذية الجسم بالطاقة وتعبئة مخازن الجليكوجين',
+        specs: ['5.2 كيلو حجم العبو ة  ', '16 حصة'],
+        image: ' images/8.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+     {
+        //Mass Gainer
+        id: 9,
+        cat: 'مسحوق الضخامة',
+        name: '   ماس غاينر ',
+        latin: 'Mass Gainer ',
+        desc: '   مكمل غذائي لزيادة الوزن والكتلة العضلية من شركة Applied Nutrition       ',
+        benefits: 'سعرات حرارية عالية - تعزيز القوة البدنية',
+        specs: ['6 كيلو حجم العبو ة  ','نكهة الشوكولا البيضاء بالفستق', '30 حصة'],
+        image: ' images/9.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+     {
+        //Serious Mass
+        id: 10,
+        cat: 'مسحوق الضخامة',
+        name: '   سيريوس ماس  ',
+        latin: 'Serious Mass ',
+        desc: '   مكمل غذائي لزيادة الوزن والكتلة العضلية من شركة Optimum Nutrition        ',
+        benefits: 'زيادة الوزن - دعم بناء العضلات - مدعم ب25 نوع من الفيتامينات والمعادون الأساسية إلى جانب الكرياتين والجلوتامين لتحسين الأداءالرياضي - تعزيز القوة البدنية',
+        specs: ['5.45 كيلو حجم العبو ة  ','نكهة زبدة الفول السوداني بالشوكولا', '16 حصة'],
+        image: ' images/10.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+    {
+        //Critical Mass
+        id: 11,
+        cat: 'مسحوق الضخامة',
+        name: '   كريتيكال ماس  ',
+        latin: 'Critical Mass ',
+        desc: '   مكمل غذائي لزيادة الوزن والكتلة العضلية من شركة Applied Nutrition    ',
+        benefits: 'زيادة الوزن - دعم بناء العضلات - تعزيز القوة البدنية',
+        specs: ['6 كيلو حجم العبو ة  ','نكهة الشوكولا البيضاء مع البندق ', '25 حصة'],
+        image: ' images/11.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+     {
+        //Gold Lean Mass
+        id: 12,
+        cat: 'مسحوق الضخامة',
+        name: ' غولد لين ماس ',
+        latin: 'Gold Lean Mass ',
+        desc: '   مكمل غذائي لزيادة الوزن والكتلة العضلية من شركة Kevin Levrone        ',
+        benefits: 'زيادة الوزن - دعم بناء العضلات - تعزيز القوة البدنية',
+        specs: ['6 كيلو حجم العبو ة  ', '30 حصة'],
+        image: ' images/12.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+    {
+        //Carbonox
+        id: 13,
+        cat: 'مسحوق الضخامة',
+        name: ' كاربونوكس ',
+        latin: 'Carbonox ',
+        desc: '   مكمل غذائي لزيادة الوزن والكتلة العضلية من شركة Olimp Nutrition        ',
+        benefits: ' يحتوي على الجلوكوز، المالتوديكسترين، والإيزومالتولوز. يمنحك هذا المزيج طاقة فورية ومستمرة تدوم حتى ساعتين بفضل اختلاف سرعة امتصاص السكريات (سريعة، متوسطة، وممتدة المفعول) دون أن يسبب هبوطاً مفاجئاً في الطاقة -مدعم بـ ال-أرجينين (L-Arginine HCl): يحتوي على 500 ملغ لكل حصة، وهو حمض أميني يساعد على توسيع الأوعية الدموية وضخ الدم المحمل بالأكسجين والمغذيات مباشرة إلى العضلات- مركب الفيتامينات والمعادن: مدعم بـ 12 فيتامين أساسي (مثل فيتامينات B، C، D، E) و8 معادن لتعويض الأملاح المفقودة أثناء التعرق وتحسين عملية التمثيل الغذائي للكربوهيدرات',
+        specs: ['1 كيلو حجم العبو ة  ', '20 حصة'],
+        image: ' images/13.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+//بروتين
+
+    {
+        //Whey Protine
+        id: 15,
+        cat: 'مسحوق بروتين',
+        name: '  واي بروتين',
+        latin: 'Whey Protine ',
+        desc: ' مكمل غذائي مصمم لدعم بناء العضلات والاستشفاء العضلي من شركة Nutrex Research ',
+        benefits: ' مخفوق لبناء الكتلة العضلية اللينة - وتحسين الاستشفاء العضلي بعد التمرين',
+        specs: ['2.26 كيلو حجم العبو ة  ','نكهة  الشوكولا', '64 حصة'],
+        image: ' images/15.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+   {
+        //Whey Protine Complex
+        id: 16,
+        cat: 'مسحوق بروتين',
+        name: ' واي بروتين كومبلكس',
+        latin: 'Whey Protine Complex',
+        desc: ' مكمل غذائي بروتيني من شركة Olimp Nutrition  ',
+        benefits: '  يحتوي تقريباً على 26 غراماً من البروتين في الحصة الواحدة',
+        specs: ['1800 غرام حجم العبو ة  ','نكهة  الفانيليا', '51 حصة'],
+        image: ' images/16.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+     {
+        //Beef XP Clear Protien
+        id: 17,
+        cat: 'مسحوق بروتين',
+        name: '   بيف اكس بي بروتين',
+        latin: 'Beef XP Clear Protien',
+        desc: ' مكمل غذائي بروتين لحم البقر المعزول المتحلل من شركة Applied Nutrition  ',
+        benefits: ' خال من السكر وقليل الدهون- يعطي تقريبا 114 سعرة حرارية في كل حصة',
+        specs: ['1.8 كيلو حجم العبو ة  ','نكهة  التوت الأزرق', '60 حصة'],
+        image: ' images/17.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+     {
+        //Casein Protein
+        id: 18,
+        cat: 'مسحوق بروتين',
+        name: ' بروتين الكازين ميسيلار ',
+        latin: 'Casein Protein',
+        desc: ' مكمل غذائي بروتين لحم البقر المعزول المتحلل من شركة Applied Nutrition  ',
+        benefits: 'بروتين بطيء الامتصاص - منع الهدم العضلي أثناء النوم - دعم الاسشفاء العضلي والنمو - تحسين الهضم والامتصاص ',
+        specs: ['900 غرام حجم العبو ة  ','نكهة كريم الشوكولا', '30 حصة'],
+        image: ' images/18.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+     {
+        //Whey Protein Blend 
+        id: 19,
+        cat: 'مسحوق بروتين',
+        name: '  واي بروتين بليند ',
+        latin: 'Whey Protein Blend ',
+        desc: ' مكمل غذائي من شركة Basic Supplements  ',
+        benefits: 'دعم تخليق بروتين العضلات - المساعدة في بناء وإصلاح الأنسجة - ملف أحماض أمينية متكاملة - دعم الجهاز المناعي ',
+        specs: ['2.27 كيلو حجم العبو ة  ','نكهة كعكة التوت ', '65 حصة'],
+        image: ' images/19.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+    {
+        //Command Quadro Whey
+        id: 20,
+        cat: 'مسحوق بروتين',
+        name: '  كوماند كوادرو واي  ',
+        latin: 'Command Quadro Whey ',
+        desc: ' مكمل غذائي من شركة SSN  ',
+        benefits: 'يوفر 22 غرام من البروتين لكل حصة - دعم بناء العضلات والاستشفاء  ',
+        specs: ['2.1 كيلو حجم العبو ة  ','نكهة  البسكويت ', '70 حصة'],
+        image: ' images/20.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+    {
+        //Core Protein Isolate 
+        id: 21,
+        cat: 'مسحوق بروتين',
+        name: '  كور بروتين ايزوليت  ',
+        latin: 'Core Protein Isolate ',
+        desc: ' مكمل غذائي من شركة Core Champs  ',
+        benefits: 'امتصاص فائق - زيادة القوة والتحمل - دعم بناء العضلات والاستشفاء  ',
+        specs: ['2 كيلو حجم العبو ة  ','نكهة  كرميل لاتيه ', '67 حصة'],
+        image: ' images/21.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+     {
+        //Core Whey Protein  
+        id: 22,
+        cat: 'مسحوق بروتين',
+        name: '  كور واي بروتين   ',
+        latin: 'Core Whey Protein   ',
+        desc: ' مكمل غذائي من شركة Core Champs  ',
+        benefits: '25غرام بروتين - 132 سعرة حرارية - زيادة القوة والتحمل - دعم بناء العضلات والاستشفاء  ',
+        specs: ['2.27 كيلو حجم العبو ة  ','نكهة  الفراولة  ', '66 حصة'],
+        image: ' images/22.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+    {
+        //Bad Ass Isobolic  
+        id: 23,
+        cat: 'مسحوق بروتين',
+        name: '  باد اس ايزوبوليك  ',
+        latin: 'Bad Ass Isobolic    ',
+        desc: ' مكمل غذائي متطور ومدعم بمكونات لتعزيز الأداء العضلي من شركة Bad Ass  ',
+        benefits: ' زيادة القوة - انتاج الطاقة داخل العضلات - تقليل الجهد الر ياضي - منخفض الدهون والكربوهيدرات مما يجعله مثاليا لبناء عضلات صافية بدون دهون زائدة ',
+        specs: ['2 كيلو حجم العبو ة  ', '66 حصة'],
+        image: ' images/23.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+    {
+        //Bad Ass Whey  
+        id: 24,
+        cat: 'مسحوق بروتين',
+        name: '  باد اس واي  ',
+        latin: 'Bad Ass Whey    ',
+        desc: ' مكمل غذائي متطور ومدعم بمكونات لتعزيز الأداء العضلي من شركة Bad Ass  ',
+        benefits: ' زيادة القوة - تقليل الجهد الر ياضي - منخفض الدهون والكربوهيدرات مما يجعله مثاليا لبناء عضلات صافية بدون دهون زائدة ',
+        specs: ['2 كيلو حجم العبو ة  ', '66 حصة'],
+        image: ' images/24.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+     {
+        //Premium Beef Protein
+        id: 25,
+        cat: 'مسحوق بروتين',
+        name: ' بريميوم بيف بروتين ',
+        latin: 'Premium Beef Protein ',
+        desc: ' مكمل غذائي من شركة Yava Labs ',
+        benefits: ' دعم الاستشفاء والأداء  -بديل مثالي لمن يعانون من حساسية اللاكتوز - خالي من الدهون والكربوهيدرات والسكريات لبناء عضلات صافية  ',
+        specs: ['2 كيلو حجم العبو ة  ','نكهة المانجو', '66 حصة'],
+        image: ' images/25.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+     {
+        // Beef Isolate
+        id: 26,
+        cat: 'مسحوق بروتين',
+        name: ' بيف ايزوليت ',
+        latin: 'Beef Isolate ',
+        desc: ' مكمل غذائي بروتين لحم البقر المعزول من شركة Core Champs ',
+        benefits: ' بناء عالي النقاء للعضلات - استشفاء عضلي سريع - خل من الدهون والسكريات - بديل مثالي لبروتين الواي  ',
+        specs: ['1.8 كيلو حجم العبو ة  ','نكهة انفجار الفيمتو ', '60 حصة'],
+        image: ' images/26.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+     {
+        // Premium Whey
+        id: 27,
+        cat: 'مسحوق بروتين',
+        name: ' واي بروتين مركز ',
+        latin: 'Premium Whey ',
+        desc: ' مكمل غذائي من شركة Yava Labs ',
+        benefits: ' دعم نمو الكتلة العضلية - تسريع الاستشفاء العضلي - تغطية الاحتياج اليومي  من البروتين   ',
+        specs: ['2 كيلو حجم العبو ة  ','نكهة التوت البري  ', '66 حصة'],
+        image: ' images/27.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+
+    //محفز طاقة
+
+      {
+        // RDX Pre-Workout
+        id: 28,
+        cat: 'محفز طاقة',
+        name: 'آر دي إكس ',
+        latin: 'RDX Pre-Workout ',
+        desc: ' مكمل طاقة ماقبل التمرين من شركة  Core Champs ',
+        benefits: '  طاقة مكثفة وطويلة الأمد - زيادة القوة والأداء العضلي - ضخ دم هائل - تركيز ذهني حاد  ',
+        specs: ['420 غرام حجم العبو ة  ','نكهة  الفواكه المشكلة  ', '30 حصة'],
+        image: ' images/28.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+      {
+        // Caffeine 2T
+        id: 29,
+        cat: 'محفز طاقة',
+        name: 'كافيين 2 تي',
+        latin: 'Caffeine 2T ',
+        desc: ' مكمل طاقة من شركة  Hardline Nutrition ',
+        benefits: '  تعزيز مستويات الطاقة - تقليل التعب والإرهاق - زيادة التركيز الذهني واليقظة  ',
+        specs: ['120 كبسولة '],
+        image: ' images/29.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+    {
+        // Caffeine 200MG Liquid
+        id: 30,
+        cat: 'محفز طاقة',
+        name: 'كافيين 200مغ سائل ',
+        latin: 'Caffeine 200MG Liquid ',
+        desc: ' مكمل طاقة من شركة  Hardline Nutrition ',
+        benefits: '  تعزيز الطاقة - تنشيط حرق الدهون - زيادة الأداء واليقظة  ',
+        specs: ['30 مل كل أمبولة ',' نكهة الليمون ','20 أمبولة '],
+        image: ' images/30.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+     {
+        // Buster Pre-Workout
+        id: 31,
+        cat: 'محفز طاقة',
+        name: 'باستر بري وورك',
+        latin: 'Buster Pre-Workout ',
+        desc: ' مكمل طاقة ماقبل التمرين من شركة  West Nutrition ',
+        benefits: '  تعزيز الطاقة - مدعم بالفيتامينات والمعادن - مستوى كربوهيدرات منخفضة  ',
+        specs: ['672 غرام',' نكهة الليمون ','30 حصة  '],
+        image: ' images/31.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+     {
+        // Buster Pre-Workout
+        id: 32,
+        cat: 'محفز طاقة',
+        name: 'باستر بري وورك',
+        latin: 'Buster Pre-Workout ',
+        desc: ' مكمل طاقة ماقبل التمرين من شركة  West Nutrition ',
+        benefits: ' زيادة ضخ الدم والأوكسجين إلى العضلات - تأخير الشعور بالتعب العضلي - زيادة القوة البدنية - الاستشفاء ومنع الهدم العضلي - دعم الجسم بالمعادن والفيتامينات ',
+        specs: ['336 غرام',' نكهة الفواكه البرية ','15 حصة  '],
+        image: ' images/32.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+    {
+        //  Total War
+        id: 33,
+        cat: 'محفز طاقة',
+        name: 'توتال وار',
+        latin: 'Total War ',
+        desc: ' مكمل طاقة من شركة  Redcon ',
+        benefits: ' ضخ دموي ممتاز - طاقة مستدامة - قدرة تحمل - تركيز ذهني حاد',
+        specs: ['447 غرام',' نكهة الليمونادا الزرقاء ','30 حصة  '],
+        image: ' images/33.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+    {
+        // C4 Original Pre-Workout
+        id: 34,
+        cat: 'محفز طاقة',
+        name: ' سي 4 أورجينال ',
+        latin: ' C4 Original Pre-Workout',
+        desc: ' مكمل طاقة قبل التمرين من شركة  Cellucor ',
+        benefits: '   تحفيز تخليق بروتين العضلات - ضخ دموي ممتاز - طاقة متفجرة - تعزيز التحمل العضلي - تركيز ذهني حاد',
+        specs: ['390 غرام','60 حصة  '],
+        image: ' images/34.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+    {
+        // Taurine 
+        id: 35,
+        cat: 'محفز طاقة',
+        name: ' تاورين',
+        latin: ' Taurine 100% Powder',
+        desc: ' مكمل غذائي يحتوي على الحمض الأميني الصافي من شركة  Hard Line Nutrition ',
+        benefits: '   ترطيب الخلايا العضلية -  دعم صحة القلب - تعزيز التحمل والاستشفاءالعضلي - تركيز ذهني حاد',
+        specs: ['300 غرام','100 حصة  '],
+        image: ' images/35.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+    {
+        // Beta Alanine 
+        id: 36,
+        cat: 'محفز طاقة',
+        name: ' بيتا ألانين',
+        latin: ' Beta Alanine ',
+        desc: ' مكمل غذائي من شركة  Hard Line Nutrition ',
+        benefits: '  تأخير تعب وإجهاد العضلات - زيادة القدرة على التحمل - تحسين الأداء البدني ',
+        specs: ['300 غرام','100 حصة  '],
+        image: ' images/36.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+
+    //حوارق الدهون
+
+   {
+        // Clabig 
+        id: 37,
+        cat: 'حارق الدهون',
+        name: ' كلابيغ',
+        latin: ' Clabig  ',
+        desc: ' مكمل غذائي من شركة BigJoy ',
+        benefits: 'دعم إدارة الوزن - الحفاظ على الكتلة العضلية - دعم إنتاج الطاقة  ',
+        specs: ['33 حصة','99 كبسولة  '],
+        image: ' images/37.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+    {
+        // Berberine
+        id: 38,
+        cat: 'حارق الدهون',
+        name: ' بيربيرين',
+        latin: ' Berberine  ',
+        desc: ' مكمل غذائي من شركة Applied Nutrition ',
+        benefits: ' تعزيز كفاءة استهلاك الكربوهيدرات - المساعدة في رحلة خسارة الوزن - دعم مستويات السكر في الدم - أقصى درجات الامتصاص ',
+        specs: ['30 حصة','60 كبسولة  '],
+        image: ' images/38.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+     {
+        // Burner
+        id: 39,
+        cat: 'حارق الدهون',
+        name: ' بورنر',
+        latin: ' Burner  ',
+        desc: ' مكمل غذائي لحرق الدهون من شركة Hard Line Nutrition ',
+        benefits: ' تحفيز حرق الدهون - تثبيط الشهية - زيادة مستويات الطاقة والنشاط -  ',
+        specs: ['60 حصة','120 قرص  '],
+        image: ' images/39.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+
+    {
+        // CLA One
+        id: 40,
+        cat: 'حارق الدهون',
+        name: ' سي إل اي ون',
+        latin: '  CLA One  ',
+        desc: ' مكمل غذائي لحرق الدهون من شركة HardLine Nutrition ',
+        benefits: ' دعم حرق الدهون -الحفاظ على الكتلة العضلية -  تحسين التكوين العضلي والجسماني - خال من المنشطات  -  ',
+        specs: ['100 حصة','100 كبسولة جيلاتينية ناعمة  '],
+        image: ' images/40.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+     {
+        // Liquid L-Carnitine 3000
+        id: 41,
+        cat: 'حارق الدهون',
+        name: ' سائل إل كارنتين 3000',
+        latin: '  Liquid L-Carnitine 3000  ',
+        desc: ' مكمل غذائي لحرق الدهون من شركة Applied Nutrition ',
+        benefits: ' دعم حرق الدهون -الحفاظ على الكتلة العضلية - سريع الامتصاص - مناسب للنباتيين - يساهم في حماية الخلايا من الإجهاد التأكسدي - خال من السكر والدهون  -زيادة طاقة الجسم  ',
+        specs: ['32 حصة','480 مل  '],
+        image: ' images/41.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+     {
+        // L-Karnitin Powder Mix
+        id: 42,
+        cat: 'حارق الدهون',
+        name: 'إل كارنيتين باودر ميكس',
+        latin: ' L-Karnitin Powder Mix ',
+        desc: ' مكمل غذائي لحرق الدهون من شركة West Nutrition ',
+        benefits: ' دعم حرق الدهون -  تحسين الأداء - زيادة التركيز والنشاط   ',
+        specs: ['50 حصة','250 غرام  '],
+        image: ' images/42.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+
+    {
+        //Hydroxycut Hardcore
+        id: 43,
+        cat: 'حارق الدهون',
+        name: 'هايدروكسكت هاردكور',
+        latin: ' Hydroxycut Hardcore ',
+        desc: ' مكمل غذائي لحرق الدهون من شركة  Muscle Tech ',
+        benefits: ' دعم خسارة الوزن -  تعزيز التمثيل الغذائي - طاقة قصوى وتركيز حاد   ',
+        specs: ['55 حصة','110 كبسولة حرارية  '],
+        image: ' images/43.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+    {
+        //L-Carnitine Thermo
+        id: 44,
+        cat: 'حارق الدهون',
+        name: ' إل كارنتين ثيرمو',
+        latin: ' L-Carnitine Thermo',
+        desc: ' مكمل غذائي لحرق الدهون من شركة  HardLine ',
+        benefits: ' تحفيز حرق الدهون -  طاقة أكبر - تأثير حراري   ',
+        specs: ['16 حصة','500 مل  '],
+        image: ' images/44.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+    {
+        //Lipo-6 Black Ultra Concentrate 
+        id: 45,
+        cat: 'حارق الدهون',
+        name: ' ليبو 6 بلاك ألترا',
+        latin: ' Lipo-6 Black Ultra Concentrate ',
+        desc: ' مكمل غذائي لحرق الدهون من شركة  Nutrex Research ',
+        benefits: 'تأثير حراري لتدمير الدهون - كبح الشهية والتحكم بالجوع - تعزيز الطاقة والتركيز - امتصاص سريع',
+        specs: ['60 حصة','60 كبسولة  '],
+        image: ' images/45.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+    {
+        //CLA + Carnitine
+        id: 46,
+        cat: 'حارق الدهون',
+        name: ' سي إل اي + كارنتين',
+        latin: ' CLA + Carnitine ',
+        desc: ' مكمل غذائي لحرق الدهون من شركة  BPI Sports ',
+        benefits: 'تحويل الدهون إلى طاقة - تقليل تخزين الدهون - الحفاظ على الكتلة العضلية - خال من المنبهات',
+        specs: ['50 حصة','300-385 غرام حسب النكهة  ','نكهة عصير الفواكه'],
+        image: ' images/46.jpg' // يمكنك وضع مسار الصورة الخاصة بالمنتج هنا
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+    // أضف أي منتج جديد هنا بنفس الصيغة تماماً
+];
+
+let active = 'الكل';
+const filtersEl = document.getElementById('filters');
+const gridEl = document.getElementById('productGrid');
+const searchEl = document.getElementById('search');
+
+// عرض أزرار الفلاتر
+function renderFilters() {
+    filtersEl.innerHTML = categories.map(c => 
+        `<button class="filter ${active === c ? 'active' : ''}" onclick="setCategory('${c}')">${c}</button>`
+    ).join('');
+}
+
+// عرض المنتجات وتطبيق البحث والفلاتر
+function renderProducts() {
+    const q = searchEl.value.trim().toLowerCase();
+    const list = products.filter(p => 
+        (active === 'الكل' || p.cat === active) && 
+        (!q || (p.name + ' ' + p.cat + ' ' + p.latin).toLowerCase().includes(q))
+    );
+
+    document.getElementById('count').textContent = `${list.length} منتج`;
+
+    gridEl.innerHTML = list.length ? list.map(p => `
+        <article class="product-card">
+            <div class="product-visual">
+                <span class="category-tag">${p.cat}</span>
+                <img src="${p.image}" alt="${p.name}">
+            </div>
+            <div class="card-body">
+                <div class="latin">${p.latin}</div>
+                <h3>${p.name}</h3>
+                <p>${p.desc}</p>
+                <div class="card-foot">
+                    <button class="details" onclick="openModal(${p.id})">تعرّف على المنتج</button>
+                    <span class="arrow">‹</span>
+                </div>
+            </div>
+        </article>
+    `).join('') : `<div class="empty">لا توجد منتجات مطابقة لبحثك حالياً.</div>`;
+}
+
+function setCategory(c) {
+    active = c;
+    renderFilters();
+    renderProducts();
+}
+
+searchEl.addEventListener('input', renderProducts);
+
+// فتح نافذة تفاصيل المنتج (Modal)
+function openModal(pid) {
+    const p = products.find(x => x.id === pid);
+    if (!p) return;
+    
+    document.getElementById('modalCategory').textContent = p.cat;
+    document.getElementById('modalTitle').textContent = p.name;
+    document.getElementById('modalLatin').textContent = p.latin;
+    document.getElementById('modalDesc').textContent = p.desc;
+    document.getElementById('modalBenefits').textContent = p.benefits;
+    document.getElementById('modalSpecs').innerHTML = p.specs.map(s => `<span class="spec">${s}</span>`).join('');
+    
+    // وضع الصورة بالنافذة المنبثقة
+    document.getElementById('mainPhoto').innerHTML = `<img src="${p.image}" alt="${p.name}">`;
+    ['thumb1', 'thumb2', 'thumb3'].forEach(id => {
+        document.getElementById(id).innerHTML = `<img src="${p.image}" alt="${p.name}">`;
+    });
+
+    document.getElementById('productModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    document.getElementById('productModal').classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+document.getElementById('productModal').addEventListener('click', e => {
+    if (e.target.id === 'productModal') closeModal();
+});
+
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+});
+
+function contactUs() {
+    alert('تواصل معنا عبر واتساب الرقم: 963939101029+');
+}
+
+// التشغيل الأولي
+renderFilters();
+renderProducts();
+</script>
+</body>
+</html>
